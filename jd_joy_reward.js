@@ -62,7 +62,7 @@ const JD_API_HOST = 'https://jdjoy.jd.com';
       }
       console.log(`本地时间与京东服务器时间差(毫秒)：${await get_diff_time()}`);
       await joyReward();
-      // $.msg($.name, '兑换脚本暂不能使用', `请停止使用，等待后期更新\n如果新版本兑换您有兑换机会，请抓包兑换\n再把抓包数据发送telegram用户@lxk0301`);
+      // $.msg($.name, '兑换脚本暂不能使用', `请停止使用，等待后期更新\n如果新版本兑换您有兑换机会，请抓包兑换\n再把抓包数据发送telegram用户@LXK9301`);
     }
   }
 })()
@@ -198,9 +198,30 @@ function getExchangeRewards() {
 }
 function exchange(saleInfoId, orderSource) {
   return new Promise((resolve) => {
+    const body = {
+      "buyParam": { saleInfoId, orderSource },
+      "deviceInfo": {
+        "eid": "",
+        "fp": "",
+        "deviceType": "",
+        "macAddress": "",
+        "imei": "",
+        "os": "",
+        "osVersion": "",
+        "ip": "",
+        "appId": "",
+        "openUUID": "",
+        "idfa": "",
+        "uuid": "",
+        "clientVersion": "",
+        "networkType": "",
+        "appType": "",
+        "sdkToken": ""
+      }
+    }
     const option = {
-      url: `${JD_API_HOST}/gift/exchange`,
-      body: `${JSON.stringify({ saleInfoId, orderSource })}`,
+      url: `${JD_API_HOST}/gift/new/exchange?reqSource=h5`,
+      body: `${JSON.stringify(body)}`,
       headers: {
         "Host": "jdjoy.jd.com",
         "Accept": "*/*",
