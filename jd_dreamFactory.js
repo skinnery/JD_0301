@@ -88,7 +88,7 @@ if ($.isNode()) {
       }
       await jdDreamFactory()
     }
-  }
+    }
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
@@ -894,7 +894,7 @@ async function tuanActivity() {
       const QueryTuanRes = await QueryTuan(activeId, tuanId);
       if (QueryTuanRes && QueryTuanRes.ret === 0) {
         const { tuanInfo } = QueryTuanRes.data;
-                if ((tuanInfo && tuanInfo[0]['endTime']) <= QueryTuanRes['nowTime'] && surplusOpenTuanNum > 0) {
+        if ((tuanInfo && tuanInfo[0]['endTime']) <= QueryTuanRes['nowTime'] && surplusOpenTuanNum > 0) {
           $.log(`之前的团已过期，准备重新开团\n`)
           await CreateTuan();
         }
@@ -1368,7 +1368,7 @@ function requireConfig() {
   return new Promise(async resolve => {
     await updateTuanIdsCDN('https://gitee.com/lxk0301/updateTeam/raw/master/jd_updateFactoryTuanId.json');
     if (!$.tuanIdS) await updateTuanIds();
-    if (!$.tuanIdS) await await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/LXK9301/updateTeam@master/jd_updateFactoryTuanId.json');
+    if (!$.tuanIdS) await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/LXK9301/updateTeam@master/jd_updateFactoryTuanId.json');
     if ($.tuanIdS && $.tuanIdS.tuanActiveId) {
       tuanActiveId = $.tuanIdS.tuanActiveId;
     }
