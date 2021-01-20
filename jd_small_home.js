@@ -100,7 +100,7 @@ const JD_API_HOST = 'https://lkyl.dianpusoft.cn/api';
         console.log(`\n${$.UserName} 去给自己的下一账号 ${decodeURIComponent($.newShareCodes[(i + 1) % $.newShareCodes.length]['cookie'].match(/pt_pin=(.+?);/) && $.newShareCodes[(i + 1) % $.newShareCodes.length]['cookie'].match(/pt_pin=(.+?);/)[1])}助力，助力码为 ${code}\n`)
         await createAssistUser(code, $.createAssistUserID);
       }
-      console.log(`\n去帮助作者:lxk0301\n`)
+      console.log(`\n去帮助作者:LXK9301\n`)
       await helpFriends();
     }
   }
@@ -786,7 +786,7 @@ function login(userName) {
     })
   })
 }
-function updateInviteCode(url = 'https://raw.githubusercontent.com/lxk0301/updateTeam/master/jd_updateSmallHomeInviteCode.json') {
+function updateInviteCode(url = 'https://raw.githubusercontent.com/LXK9301/updateTeam/master/jd_updateSmallHomeInviteCode.json') {
   return new Promise(resolve => {
     $.get({url}, async (err, resp, data) => {
       try {
@@ -803,7 +803,7 @@ function updateInviteCode(url = 'https://raw.githubusercontent.com/lxk0301/updat
     })
   })
 }
-function updateInviteCodeCDN(url = 'https://raw.fastgit.org/lxk0301/updateTeam/master/jd_updateSmallHomeInviteCode.json') {
+function updateInviteCodeCDN(url) {
   return new Promise(async resolve => {
     $.get({url}, async (err, resp, data) => {
       try {
